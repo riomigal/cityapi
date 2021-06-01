@@ -1,6 +1,86 @@
 The api implements the simplemaps.com database. The database is normalized in third normal form (cities, admins, countries).
 
-test
+
+<b>Countries:</b>
+
+GET Params: filter[search], filter[id]
+
+All countries
+http://cityapi.migale.eu/api/v1/countries
+
+Search country
+http://cityapi.migale.eu/api/v1/countries?filter[search]={input}
+
+Show by id
+http://cityapi.migale.eu/api/v1/countries/{id}
+
+Show by ids
+http://cityapi.migale.eu/api/v1/countries?filter[id]={ids} (comma separated 132,12...)
+
+Relationships:
+Admins: http://cityapi.migale.eu/api/v1/countries/{id}/relationships/admins
+Cities: http://cityapi.migale.eu/api/v1/countries/{id}/relationships/cities
+
+
+<b>Admins:</b>
+
+GET Params: filter[search], filter[id], filter[country-id] 
+
+All countries
+http://cityapi.migale.eu/api/v1/admins
+
+Search admin
+http://cityapi.migale.eu/api/v1/admins?filter[search]={input}
+
+Show by id
+http://cityapi.migale.eu/api/v1/admins/{id}
+
+Show by ids
+http://cityapi.migale.eu/api/v1/admins?filter[id]={ids} (comma separated 132,12...)
+
+Filter by country ids
+http://cityapi.migale.eu/api/v1/admins?filter[country-id]={ids} (comma separated 132,12...)
+
+Relationsships:
+Cities: http://cityapi.migale.eu/api/v1/admins/{id}/relationships/cities
+Country: http://cityapi.migale.eu/api/v1/admins/{id}/relationships/country
+
+
+
+<b>Cities:</b>
+
+GET Params: filter[search], filter[id], filter[country-id], filter['admin-id]
+
+All countries
+http://cityapi.migale.eu/api/v1/cities
+
+Search admin
+http://cityapi.migale.eu/api/v1/cities?filter[search]={input}
+
+Show by id
+http://cityapi.migale.eu/api/v1/cities/{id}
+
+Show by ids
+http://cityapi.migale.eu/api/v1/cities?filter[id]={ids} (comma separated 132,12...)
+
+Filter by country ids
+http://cityapi.migale.eu/api/v1/cities?filter[country-id]={ids} (comma separated 132,12...)
+
+Filter by admin ids
+http://cityapi.migale.eu/api/v1/cities?filter[admin-id]={ids} (comma separated 132,12...)
+
+Relationsships:
+Admin: http://cityapi.migale.eu/api/v1/cities/{id}/relationships/admin
+Country: http://cityapi.migale.eu/api/v1/cities/{id}/relationships/country
+
+
+<p>City Radius Search</p>
+
+GET Params: filter[latitude], fitler[longitude], filter[radius]
+
+Fitler radius:
+
+http://cityapi.migale.eu/api/v1/cities?filter[latitude]={latitude}&filter[longitude]={longitude}&filter[radius]={radius}
 
 ## About Laravel
 
