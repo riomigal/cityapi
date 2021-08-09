@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
+use CloudCreativity\LaravelJsonApi\Facades\JsonApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,9 +39,10 @@ Route::get('/country/{country}/cities', [CityController::class, 'getByCountry'])
 });
  */
 
-Route::group(['middleware' => ['api_key', 'request_method']], function() {
+Route::group(['middleware' => ['api_key', 'request_method']], function () {
     JsonApi::register('default')->routes(function ($api) {
         $api->resource('countries')->relationships(function ($relations) {
+
             $relations->hasMany('admins');
             $relations->hasMany('cities');
         });

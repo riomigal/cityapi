@@ -32,6 +32,8 @@ class Adapter extends AbstractAdapter
      */
     public function __construct(StandardStrategy $paging)
     {
+
+
         $paging->withPageKey('page')->withPerPageKey('limit');
         parent::__construct(new Country(), $paging);
     }
@@ -43,6 +45,7 @@ class Adapter extends AbstractAdapter
      */
     protected function filter($query, Collection $filters)
     {
+
         if ($search = $filters->get('search')) {
             $query->where('country', 'like', "{$search}%");
         }
@@ -51,6 +54,7 @@ class Adapter extends AbstractAdapter
         if ($id = $filters->get('id')) {
             $query->whereIn('id', explode(',', $id));
         }
+
         //$this->filterWithScopes($query, $filters);
     }
 
