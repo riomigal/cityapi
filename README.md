@@ -1,4 +1,4 @@
-The api implements the simplemaps.com database. The database is normalized in third normal form (cities, admins, countries).
+The api implements the simplemaps.com database. The database is normalized in third normal form (cities, admins, countries). To use this api you need an api key which you can obtain by creating a demo account on <a href="https://cityapifrontend.migale.eu" target="_blank">https://cityapifrontend.migale.eu</a>. 
 
 
 <b>Countries:</b>
